@@ -11,23 +11,17 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Properties;
 
-//public class Main {
-//    public static void main(String[] args) {
-//        System.out.println("Hello world!");
-//    }
-//}
 public class Producer{
     private static final Logger log = LoggerFactory.getLogger(KafkaProducer.class);
     public static void main(String[] args){
-//        log.info("Am Intergrating Kafka to a Java Application . and i love it");
+
         Properties properties = new Properties();
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
-        // ProducerRecord<String, String> producerRecord = new ProducerRecord<>("lotRcharacters", "hobbits", "Bilbo");
-        // producer.send(producerRecord);
+        
 
         HashMap<String, String> characters = new HashMap<String, String>();
         characters.put("hobbits", "Bilbo");
